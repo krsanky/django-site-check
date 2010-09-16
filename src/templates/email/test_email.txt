@@ -1,0 +1,4 @@
+This is a email from the Site Check application.
+A site is down.
+
+{{ site.name }}: {{ site.url }}

@@ -1,11 +1,16 @@
 from django.contrib import admin
-from site_check.models import SiteCheck
+from site_check.models import CheckSite
+from site_check.models import CheckLog
 
-class SiteCheckAdmin(admin.ModelAdmin):
+class CheckSiteAdmin(admin.ModelAdmin):
     list_display = ('name', 'url', 'active', 'added')
     list_editable = ('active',)
+admin.site.register(CheckSite, CheckSiteAdmin)
 
-admin.site.register(SiteCheck, SiteCheckAdmin)
+class CheckLogAdmin(admin.ModelAdmin):
+    list_display = ('site', 'status', 'time')
+    ordering = ('time',)
+admin.site.register(CheckLog, CheckLogAdmin)
 
 
 
