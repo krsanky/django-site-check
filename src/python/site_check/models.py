@@ -1,13 +1,16 @@
 from django.db import models
 
-#class Coord(models.Model):
-#    dt  = models.DateTimeField() #this is UTC ? (it's from fire-eagle)
-#    name = models.CharField(max_length=256)
-#    lat = models.FloatField()
+class SiteCheck(models.Model):
+    """
+    a site/service that needs checking.
+    """
+    name = models.CharField(max_length=200)
+    url = models.URLField()
+    #port ???
+    #protocol ssh ftp http ... etc. ???
 
-class Site(models.Model):
-    """
-    a 'site' that needs checking.
-    """
-    name = models.CharField(max_length=256)
-    added = models.DateTimeField()
+    added = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField()
+
+    def __unicode__(self):
+        return str(self.name) + ": " + str(self.url)
