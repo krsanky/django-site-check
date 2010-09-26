@@ -3,6 +3,9 @@ import os
 
 DIRNAME = os.path.dirname(__file__)
 BASEDIR = os.path.abspath(DIRNAME + '/../../../') # want the
+#BASEDIR = os.path.abspath(DIRNAME).split('/')
+#.pop() ... '/'.join(...) ...
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
